@@ -62,37 +62,32 @@ SELECT * FROM BOOK_COPIES;
 
 
 --QUERIES
---1--------------------------------------------------------------------------------------
-
+--1
 SELECT B.BOOK_ID, B.TITLE, B.PUBLISHER_NAME, A.AUTHOR_NAME, C.NO_OF_COPIES, C.BRANCH_ID
 FROM BOOK B, BOOK_AUTHOR A, BOOK_COPIES C
 WHERE B.BOOK_ID=A.BOOK_ID AND B.BOOK_ID=C.BOOK_ID;
 
---2--------------------------------------------------------------------------------------
-
+--2
 SELECT L.CARD_NO
 FROM BOOK_LENDING L
 WHERE DATE_OUT BETWEEN '2017-01-01' AND '2017-06-30'
 GROUP BY L.CARD_NO
 HAVING COUNT(CARD_NO) > 3;
 
---3--------------------------------------------------------------------------------------
-
+--3
 SELECT * FROM BOOK;
 
 DELETE FROM BOOK WHERE BOOK_ID=2004;
 
 SELECT * FROM BOOK;
 
---4--------------------------------------------------------------------------------------
-
+--4
 CREATE VIEW VW_PUB_YEAR AS
 SELECT PUB_YEAR FROM BOOK;
 
 SELECT * FROM VW_PUB_YEAR;
 
---5--------------------------------------------------------------------------------------
-
+--5
 CREATE VIEW VW_BK_COPIES AS
 SELECT B.BOOK_ID, B.TITLE, C.NO_OF_COPIES
 FROM BOOK B, BOOK_COPIES C
@@ -100,4 +95,3 @@ WHERE B.BOOK_ID=C.BOOK_ID;
 
 SELECT * FROM VW_BK_COPIES;
 
------------------------------------------------------------------------------------------
